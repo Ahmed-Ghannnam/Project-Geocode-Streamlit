@@ -20,17 +20,9 @@ flag=True
 # Display the results
 if location:
     flag =False
-    st.write("Latitude:", location.latitude)
-    
-    st.write("Longitude:", location.longitude)
-
-
-
 
     # create a Pandas DataFrame that contains the address I wish to geocode:
     home = gpd.GeoDataFrame([{'address': address}])
-    home
-
 
     #supply the geocoder class object returns a GeoPandas GeoDataFrame with a geometry that represents the point for each address
     home = gpd.tools.geocode(home['address'], Nominatim, user_agent='Isochrone calculator')
